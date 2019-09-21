@@ -1,22 +1,22 @@
 package com.stackroute.datamunger.query.parser;
 
 /*There are total 4 DataMungerTest file:
- * 
+ *
  * 1)DataMungerTestTask1.java file is for testing following 4 methods
  * a)getBaseQuery()  b)getFileName()  c)getOrderByClause()  d)getGroupByFields()
- * 
+ *
  * Once you implement the above 4 methods,run DataMungerTestTask1.java
- * 
+ *
  * 2)DataMungerTestTask2.java file is for testing following 2 methods
  * a)getFields() b) getAggregateFunctions()
- * 
+ *
  * Once you implement the above 2 methods,run DataMungerTestTask2.java
- * 
+ *
  * 3)DataMungerTestTask3.java file is for testing following 2 methods
  * a)getRestrictions()  b)getLogicalOperators()
- * 
+ *
  * Once you implement the above 2 methods,run DataMungerTestTask3.java
- * 
+ *
  * Once you implement all the methods run DataMungerTest.java.This test case consist of all
  * the test cases together.
  */
@@ -31,6 +31,20 @@ public class QueryParser {
 	 */
 	public QueryParameter parseQuery(String queryString) {
 
+		queryParameter.setFileName(queryString);
+		queryParameter.setBaseQuery(queryString);
+		queryParameter.setFields(queryString);
+		queryParameter.setLogicalOperator(queryString);
+		queryParameter.setOrderByFields(queryString);
+		queryParameter.setGroupByField(queryString);
+
+		queryParameter.setAggregateFunctions(queryString);
+		queryParameter.setRestriction(queryString);
+
+
+
+
+
 		return queryParameter;
 	}
 
@@ -40,7 +54,7 @@ public class QueryParser {
 	 */
 
 	/*
-	 * 
+	 *
 	 * Extract the baseQuery from the query.This method is used to extract the
 	 * baseQuery from the query string. BaseQuery contains from the beginning of the
 	 * query till the where clause
@@ -74,16 +88,16 @@ public class QueryParser {
 	/*
 	 * Extract the conditions from the query string(if exists). for each condition,
 	 * we need to capture the following: 1. Name of field 2. condition 3. value
-	 * 
+	 *
 	 * For eg: select city,winner,team1,team2,player_of_match from data/ipl.csv
 	 * where season >= 2008 or toss_decision != bat
-	 * 
+	 *
 	 * here, for the first condition, "season>=2008" we need to capture: 1. Name of
 	 * field: season 2. condition: >= 3. value: 2008
-	 * 
+	 *
 	 * the query might contain multiple conditions separated by OR/AND operators.
 	 * Please consider this while parsing the conditions.
-	 * 
+	 *
 	 */
 
 	/*
@@ -91,7 +105,7 @@ public class QueryParser {
 	 * present. For eg: select city,winner,team1,team2,player_of_match from
 	 * data/ipl.csv where season >= 2008 or toss_decision != bat and city =
 	 * bangalore
-	 * 
+	 *
 	 * The query mentioned above in the example should return a List of Strings
 	 * containing [or,and]
 	 */
@@ -104,10 +118,10 @@ public class QueryParser {
 	 * each aggregate functions, we need to know the following: 1. type of aggregate
 	 * function(min/max/count/sum/avg) 2. field on which the aggregate function is
 	 * being applied.
-	 * 
+	 *
 	 * Please note that more than one aggregate function can be present in a query.
-	 * 
-	 * 
+	 *
+	 *
 	 */
 
 }
